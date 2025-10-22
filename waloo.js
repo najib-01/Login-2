@@ -1,18 +1,28 @@
 
-let login_ = document.querySelector(".login");
-let register_link = document.querySelector(".register--link");
+let pages = {
+    login_ : document.querySelector(".login"),
+    register_ : document.querySelector(".register"),
+};
 
-let register_ = document.querySelector(".register");
-let login_link = document.querySelector(".login--link");
+let links = {
+    login_link : document.querySelector(".login--link"),
+    register_link : document.querySelector(".register--link"),
+};
 
-register_link.addEventListener("click", function(e) {
+
+links.register_link.addEventListener("click", function(e) {
+    reset_pages();
     e.preventDefault();
-    login_.classList.add("aji");
-    register_.classList.add("aji-hna");
+    pages.login_.classList.add("aji");
+    pages.register_.classList.add("aji-hna");
 });
 
-login_link.addEventListener("click", function(e) {
+function reset_pages(){
+    Object.values(pages).forEach(p =>
+        p.classList.remove("aji-hna", "aji")
+    )};
+
+links.login_link.addEventListener("click", function(e) {
+    reset_pages();
     e.preventDefault();
-    register_.classList.remove("aji-hna");
-    login_.classList.remove("aji");
 });
